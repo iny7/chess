@@ -1,13 +1,59 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-cn">
 <head>
 	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 	<title>五子棋</title>
-	<link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" type="text/css" href="css/main.css">
 </head>
 <body>
-	<canvas id="chess"></canvas>
+	
+	<section class="page" id="loading">
+		<p>加载中...</p>
+	</section>
+	
+	<section class="page" id="index">
+		<h1>五子棋</h1>
+		<p id="help">规则你懂的</p>
+		<div>
+			<button class="btn" id="btn-single">单人游戏</button>
+			<button class="btn" id="btn-double">双人游戏</button>
+			<button class="btn" id="btn-online">在线对战</button>
+		</div>
+	</section>
+	
+	<section class="page hide" id="room">
+		<header>
+			<div>
+				<span class="time">时间:<em>5</em></span>
+			</div>
+			<button class="btn" id="btn-start">开始</button>
+			<button class="btn" id="btn-exit">返回</button>
+		</header>
+		<canvas id="chess"></canvas>
+	</section>
+
+	<section class="page hide" id="netRoom">
+		<header>
+			<input type="text" id="code" placeholder="请输入口令" />
+			<button class="btn" id="btn-start">开始</button>
+			<button class="btn" id="btn-exit">返回</button>
+		</header>
+		<canvas id="chess"></canvas>
+	</section>
+
+	<section class="page hide" id="dialog">
+		<div class="content">content...</div>
+		<div class="pause">pause...</div>
+		<div class="gameover">gameover...</div>
+		<button class="btn btn-resume">再来一把</button>
+		<button class="btn btn-restart">再来一把</button>
+	</section>
+
+	<script src="js/jquery-1.11.3.min.js"></script>
+	<script src="node_modules/socket.io-client/socket.io.js"></script>
 	<script src="js/chess.js"></script>
-	<script src="js/ChessClient.js"></script>
+	<script src="js/proxy.js"></script>
+	<script src="js/app.js"></script>
 </body>
 </html>
